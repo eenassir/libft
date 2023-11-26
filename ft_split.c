@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:19:47 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/20 09:51:15 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:11:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <>
+#include "libft.h"
 
-int ft_count_word(char const *s, char c)
+static int ft_count_word(char const *s, char c)
 {
 	int i;
 	int cpt;
@@ -28,7 +28,7 @@ int ft_count_word(char const *s, char c)
 	return (cpt);
 }
 
-int ft_strlen(char const *s, char c)
+static int ft_strlens(char const *s, char c)
 {
 	int i;
 
@@ -38,7 +38,7 @@ int ft_strlen(char const *s, char c)
 	return (i);
 }
 
-char **ft_free(char **p, int j)
+static char **ft_free(char **p, int j)
 {
 	while (j--)
 	{
@@ -66,7 +66,7 @@ char **ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		p[j] = ft_substr(s, i, len = ft_strlen(s, c));
+		p[j] = ft_substr(s, i, len = ft_strlens(s, c));
 		if (!p[j])
 			return (ft_free(p , j - 1));
 		i += len;

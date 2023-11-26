@@ -1,44 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 11:48:14 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/26 17:14:45 by eenassir         ###   ########.fr       */
+/*   Created: 2023/11/26 17:15:58 by eenassir          #+#    #+#             */
+/*   Updated: 2023/11/26 22:09:03 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int ft_nbrlen(int n)
 {
 	int i;
-	size_t l;
-	char *p;
+	long num;
 
+	if (n == 0)
+		return (1);
+	num = n;
 	i = 0;
-	l = ft_strlen(s);
-	if (l == 0)
+	if (n < 0)
 	{
-		len = 0;
-		start = 0;
+		num *= -1;
+		i++;
 	}
-	if (len > l && len > 0)
-		len = l - start;
-	if (start > l && len > start)
+	while (num > 0)
 	{
-		len = l;
-		start = 0;
+		num = num/10;
+		i++;
 	}
+	return (i);
+}
+
+char *ft_itoa(int n)
+{
+	char *p;
+	int i;
+	int len;
+	int number;
+	bool flag;
+
+	len = ft_nbrlen(n);
+	i = 0;
+	flag = false;
 	p = (char *)malloc(len + 1);
 	if (!p)
 		return (NULL);
-	while (s[start] && start < len)
+	p[len] = '\0';
+	if (n < 0)
 	{
-		p[i++] = s[start++];
+		flag = true;
+		p[0] = '-';
 	}
-	p[i] = '\0';
+	while (--len > -1)
+	{
+		if (len == 0 && flag == true)
+			break ;
+		number = n % 10;
+		if (number < 0)
+			number *= -1;
+		p[len] = number + 48;
+		n = n / 10;
+	}
 	return (p);
 }

@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 11:48:14 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/26 17:14:45 by eenassir         ###   ########.fr       */
+/*   Created: 2023/11/24 11:12:34 by eenassir          #+#    #+#             */
+/*   Updated: 2023/11/24 12:05:01 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	size_t l;
 	char *p;
+	int start;
+	int end;
+	int i;
 
 	i = 0;
-	l = ft_strlen(s);
-	if (l == 0)
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
 	{
-		len = 0;
-		start = 0;
+		start++;
 	}
-	if (len > l && len > 0)
-		len = l - start;
-	if (start > l && len > start)
+	while (end > start  && ft_strchr(set, s1[end]))
 	{
-		len = l;
-		start = 0;
+		end--;
 	}
-	p = (char *)malloc(len + 1);
+	p = (char *)malloc((end - start + 2) * sizeof(char));
 	if (!p)
 		return (NULL);
-	while (s[start] && start < len)
+	while (s1[start] && start <= end)
 	{
-		p[i++] = s[start++];
+		p[i++] = s1[start++];
 	}
 	p[i] = '\0';
 	return (p);

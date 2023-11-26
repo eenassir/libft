@@ -6,7 +6,7 @@
 /*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 22:43:38 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/23 22:56:53 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/24 09:53:03 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *p;
-	int i;
-	int j;
-	int l1;
-	int l2;
+	char	*p;
+	int		i;
+	int		j;
+	int		l1;
+	int		l2;
 
 	i = 0;
 	j = 0;
@@ -29,15 +29,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	while (s1[i])
 	{
-		p[i] = (char)s1[i];
+		p[i] = s1[i];
 		i++;
 	}
 	while (s2[j])
-	{
-		p[i] = (char)s2[j];
-		i++;
-		j++;
-	}
+		p[i++] = s2[j++];
 	p[i] = '\0';
 	return (p);
 }
