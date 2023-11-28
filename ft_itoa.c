@@ -6,63 +6,63 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:15:58 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/26 22:09:03 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:25:55 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_nbrlen(int n)
+static	int	ft_nbrlen(int n)
 {
-	int i;
-	long num;
+	long	num;
+	int		i;
 
-	if (n == 0)
-		return (1);
-	num = n;
 	i = 0;
-	if (n < 0)
+	num = n;
+	if (num == 0)
+		return (1);
+	if (num < 0)
 	{
-		num *= -1;
+		num = num * -1;
 		i++;
 	}
 	while (num > 0)
 	{
-		num = num/10;
+		num = num / 10;
 		i++;
 	}
 	return (i);
 }
 
-char *ft_itoa(int n)
+static	void	set_negative_num(long *nn, int *i, char *p)
 {
-	char *p;
-	int i;
-	int len;
-	int number;
-	bool flag;
+	*nn *= -1;
+	*i = 0;
+	p[*i] = '-';
+}
 
+char	*ft_itoa(int n)
+{
+	char	*p;
+	int		i;
+	int		num;
+	int		len;
+	long	nn;
+
+	i = -1;
 	len = ft_nbrlen(n);
-	i = 0;
-	flag = false;
 	p = (char *)malloc(len + 1);
 	if (!p)
 		return (NULL);
-	p[len] = '\0';
+	nn = n;
 	if (n < 0)
+		set_negative_num(&nn, &i, p);
+	p[len] = '\0';
+	while (--len > i)
 	{
-		flag = true;
-		p[0] = '-';
-	}
-	while (--len > -1)
-	{
-		if (len == 0 && flag == true)
-			break ;
-		number = n % 10;
-		if (number < 0)
-			number *= -1;
-		p[len] = number + 48;
-		n = n / 10;
+		num = nn % 10;
+		p[len] = num + 48;
+		nn = nn / 10;
 	}
 	return (p);
 }

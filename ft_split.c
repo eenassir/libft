@@ -6,17 +6,17 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:19:47 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/26 17:11:12 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/28 10:25:20 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_count_word(char const *s, char c)
+int ft_count_word(char const *s, char c)
 {
 	int i;
 	int cpt;
-
+ 
 	i = 0;
 	cpt = 0;
 	while (s[i])
@@ -28,12 +28,12 @@ static int ft_count_word(char const *s, char c)
 	return (cpt);
 }
 
-static int ft_strlens(char const *s, char c)
+int wolens(char const *s, char c)
 {
 	int i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
 }
@@ -57,21 +57,27 @@ char **ft_split(char const *s, char c)
 	int len;
 
 	j = 0;
-	i = 0;
 	cpt = ft_count_word(s, c);
 	p = (char **)malloc((cpt + 1) * sizeof (char *));
 	if (!p)
 		return (NULL);
+	i = 0;
 	while (j < cpt)
 	{
 		while (s[i] == c)
 			i++;
-		p[j] = ft_substr(s, i, len = ft_strlens(s, c));
+		len = wolens(s + i , c);
+		p[j] = ft_substr(s, i, len);
 		if (!p[j])
-			return (ft_free(p , j - 1));
+			return (ft_free(p, j - 1));
 		i += len;
 		j++;
 	}
 	p[j] = NULL;
 	return (p);
 }
+/*
+int main()
+{
+	printf ("%d", wolens("helloworld ghello salam", ' '));
+}*/

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:48:14 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/26 17:14:45 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/27 22:05:43 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,34 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int i;
+	size_t i;
 	size_t l;
 	char *p;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	l = ft_strlen(s);
-	if (l == 0)
-	{
-		len = 0;
-		start = 0;
-	}
-	if (len > l && len > 0)
-		len = l - start;
-	if (start > l && len > start)
-	{
+	if (len > l)
 		len = l;
-		start = 0;
-	}
+	if (start > l)
+		len = 0;
 	p = (char *)malloc(len + 1);
 	if (!p)
 		return (NULL);
-	while (s[start] && start < len)
+	while (i < len && s[start])
 	{
-		p[i++] = s[start++];
+		p[i] = s[start];
+		i++;
+		start++;
 	}
 	p[i] = '\0';
 	return (p);
 }
+
+
+/*int main()
+{
+	char s[] = "psum dolor";
+	printf ("%s", ft_substr(s, 7, 10));
+}*/
