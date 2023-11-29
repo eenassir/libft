@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:19:47 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/28 10:25:20 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:56:55 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,19 @@ int wolens(char const *s, char c)
 	int i;
 
 	i = 0;
-	while (s[i] != c && s[i])
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
 
 static char **ft_free(char **p, int j)
 {
-	while (j--)
+	while (j > 0)
 	{
 		free(p[j]);
+		j--;
 	}
+	free(p[j]);
 	free(p);
 	return (NULL);
 }
@@ -57,6 +59,8 @@ char **ft_split(char const *s, char c)
 	int len;
 
 	j = 0;
+	if (!s)
+		return (NULL);
 	cpt = ft_count_word(s, c);
 	p = (char **)malloc((cpt + 1) * sizeof (char *));
 	if (!p)
@@ -66,18 +70,13 @@ char **ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		len = wolens(s + i , c);
+		len = wolens((s + i), c);
 		p[j] = ft_substr(s, i, len);
 		if (!p[j])
-			return (ft_free(p, j - 1));
+			return (ft_free(p, j));
 		i += len;
 		j++;
 	}
 	p[j] = NULL;
 	return (p);
 }
-/*
-int main()
-{
-	printf ("%d", wolens("helloworld ghello salam", ' '));
-}*/
