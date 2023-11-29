@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *p;
-	int start;
-	int end;
-	int i;
+	char	*p;
+	int		start;
+	int		end;
+	int		i;
 
 	i = 2;
 	start = 0;
@@ -26,7 +26,7 @@ char *ft_strtrim(char const *s1, char const *set)
 		i = 1;
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	while (end > start  && ft_strchr(set, s1[end]))
+	while (end > start && ft_strchr(set, s1[end]))
 		end--;
 	p = (char *)malloc(end - start + i);
 	if (!p)

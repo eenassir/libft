@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-int ft_count_word(char const *s, char c)
+static	int	ft_count_word(char const *s, char c)
 {
-	int i;
-	int cpt;
- 
+	int	i;
+	int	cpt;
+
 	i = 0;
 	cpt = 0;
 	while (s[i])
@@ -28,9 +28,9 @@ int ft_count_word(char const *s, char c)
 	return (cpt);
 }
 
-int wolens(char const *s, char c)
+int	lens(char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -38,7 +38,7 @@ int wolens(char const *s, char c)
 	return (i);
 }
 
-static char **ft_free(char **p, int j)
+static	char	**ft_free(char **p, int j)
 {
 	while (j > 0)
 	{
@@ -50,17 +50,15 @@ static char **ft_free(char **p, int j)
 	return (NULL);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int cpt;
-	char **p;
-	int j;
-	int i;
-	int len;
+	int		cpt;
+	char	**p;
+	int		j;
+	int		i;
+	size_t	len;
 
 	j = 0;
-	if (!s)
-		return (NULL);
 	cpt = ft_count_word(s, c);
 	p = (char **)malloc((cpt + 1) * sizeof (char *));
 	if (!p)
@@ -70,12 +68,10 @@ char **ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		len = wolens((s + i), c);
-		p[j] = ft_substr(s, i, len);
-		if (!p[j])
-			return (ft_free(p, j));
+		p[j] = ft_substr(s, i, len = lens((s + i), c));
+		if (!p[j++])
+			return (ft_free(p, j - 1));
 		i += len;
-		j++;
 	}
 	p[j] = NULL;
 	return (p);
