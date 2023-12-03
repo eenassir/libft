@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 21:29:04 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/03 22:49:11 by eenassir         ###   ########.fr       */
+/*   Created: 2023/12/03 22:54:18 by eenassir          #+#    #+#             */
+/*   Updated: 2023/12/03 23:25:59 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list *ft_lstlast(t_list *lst)
 {
-	t_list	*new;
+	t_list *tmp;
 
-	new = (t_list *)malloc(sizeof (t_list));
-	if (!new)
+	tmp = lst;
+	if (!lst)
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+
+	while (tmp -> next)
+	{
+		tmp = tmp->next;
+	}
+	return (tmp);
 }
