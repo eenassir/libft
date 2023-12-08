@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 23:54:42 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/30 18:14:15 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:16:11 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	size_t	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	i = 0;
 	len = ft_strlen(s);

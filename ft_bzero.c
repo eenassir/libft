@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:19:02 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/21 09:17:21 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:05:02 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_bzero(void *s, size_t n)
 
 	memoir = (unsigned char *)s;
 	while (n--)
-		*memoir++ = 0;
+		memoir[n] = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:12:34 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/27 22:12:59 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:27:12 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	int		i;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 2;
 	start = 0;
 	end = ft_strlen(s1);

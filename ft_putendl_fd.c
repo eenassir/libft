@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenassir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:53:07 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/30 18:06:56 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:48:34 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
+	if (!s || fd < 0)
+		return ;
 	i = 0;
 	while (s[i])
 		write (fd, &s[i++], 1);

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:19:47 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/28 11:56:55 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:22:53 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static	int	ft_count_word(char const *s, char c)
 	return (cpt);
 }
 
-int	lens(char const *s, char c)
+static int	lens(char const *s, char c)
 {
 	int	i;
 
@@ -59,6 +59,8 @@ char	**ft_split(char const *s, char c)
 	size_t	len;
 
 	j = 0;
+	if (!s)
+		return (NULL);
 	cpt = ft_count_word(s, c);
 	p = (char **)malloc((cpt + 1) * sizeof (char *));
 	if (!p)

@@ -6,16 +6,15 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:34:19 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/04 17:04:47 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:53:22 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
+# include <stdio.h> 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct s_list
