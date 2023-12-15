@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:23:55 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/04 17:10:25 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:00:46 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*temp;
 
-	if (!*lst || !*del)
+	if (!lst || !del)
 		return ;
 	while (*lst)
 	{

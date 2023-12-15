@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:11:15 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/04 20:41:36 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:58:33 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (!haystack && !len && needle)
+		return (NULL);
 	if (!*needle)
 		return ((char *)haystack);
 	while (haystack[i] && i < len)

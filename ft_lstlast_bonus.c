@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 22:54:18 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/06 22:25:41 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/12 00:30:32 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ t_list	*ft_lstlast(t_list *lst)
 		return (NULL);
 	tmp = lst;
 	while (tmp -> next)
-	{
 		tmp = tmp->next;
-	}
 	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 22:18:12 by eenassir          #+#    #+#             */
-/*   Updated: 2023/11/24 09:14:01 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:03:37 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	ls;
 	size_t	ld;
 
+	if (!dst && !dstsize && src)
+		return (0);
 	ls = ft_strlen(src);
 	ld = ft_strlen(dst);
 	j = 0;

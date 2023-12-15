@@ -6,14 +6,13 @@
 /*   By: eenassir <eenassir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:34:19 by eenassir          #+#    #+#             */
-/*   Updated: 2023/12/06 17:53:22 by eenassir         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:11:09 by eenassir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h> 
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -68,4 +67,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 #endif
