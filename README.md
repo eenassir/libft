@@ -109,12 +109,15 @@ The goal of this project is to strengthen understanding of C programming, memory
     make
 
 This will generate:
+
 libft.a
 
 Use it in your project
+
 #include "libft.h"
 
 Compile with:
+
 gcc main.c libft.a
 
 # 🧹 Makefile Rules
@@ -139,4 +142,4 @@ gcc main.c libft.a
 
 ## 👨‍💻 Author
 EL MEHDI ENASSIRI
-1337 School – 42 Network
+, 1337 School – 42 Network
