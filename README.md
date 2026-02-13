@@ -106,7 +106,7 @@ The goal of this project is to strengthen understanding of C programming, memory
 ## 🧪 Compilation & Usage
 
 # Build the library
-    make
+    make && make bonus
 
 This will generate:
 
