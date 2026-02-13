@@ -109,13 +109,13 @@ The goal of this project is to strengthen understanding of C programming, memory
     make
 
 This will generate:
-    libft.a
+libft.a
 
 Use it in your project
-    #include "libft.h"
+#include "libft.h"
 
 Compile with:
-    gcc main.c libft.a
+gcc main.c libft.a
 
 # 🧹 Makefile Rules
 
