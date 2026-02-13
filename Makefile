@@ -31,7 +31,7 @@ clean:
 	rm -f $(OBJ) $(BOBJ) 
 
 fclean: clean
-	rm -f $(NAME)
+	rm  -f $(NAME)
 
 re: fclean all bonus
 

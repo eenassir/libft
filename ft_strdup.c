@@ -15,19 +15,19 @@
 char	*ft_strdup(const char *s1)
 {
 	int		i;
-	char	*p;
+	char	*str;
 	int		ls;
 
 	i = 0;
 	ls = ft_strlen(s1);
-	p = (char *)malloc((ls + 1) * sizeof(char));
-	if (!p)
+	str = (char *)malloc((ls + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
 	while (s1[i])
 	{
-		p[i] = s1[i];
+		str[i] = s1[i];
 		i++;
 	}
-	p[i] = '\0';
-	return (p);
+	str[i] = '\0';
+	return (str);
 }

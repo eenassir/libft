@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+int	ft_tolower(int ch)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	if (ch >= 65 && ch <= 90)
+		ch += 32;
+	return (ch);
 }

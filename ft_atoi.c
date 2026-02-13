@@ -17,9 +17,9 @@ int	ft_atoi(const char *str)
 	int		i;
 	int		sign;
 	long	r;
-	long	over;
+	long	over_;
 
-	over = 0;
+	over_ = 0;
 	i = 0;
 	sign = 1;
 	r = 0;
@@ -31,11 +31,11 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		r = r * 10 + (str[i++] - 48);
-		if (over > r && sign == -1)
+		if (over_ > r && sign == -1)
 			return (0);
-		if (over > r && sign == 1)
+		if (over_ > r && sign == 1)
 			return (-1);
-		over = r;
+		over_ = r;
 	}
 	return (r * sign);
 }

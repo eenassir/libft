@@ -50,7 +50,7 @@ static	char	**ft_free(char **p, int j)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str, char c)
 {
 	int		cpt;
 	char	**p;
@@ -59,18 +59,18 @@ char	**ft_split(char const *s, char c)
 	size_t	len;
 
 	j = 0;
-	if (!s)
+	if (!str)
 		return (NULL);
-	cpt = ft_count_word(s, c);
+	cpt = ft_count_word(str, c);
 	p = (char **)malloc((cpt + 1) * sizeof (char *));
 	if (!p)
 		return (NULL);
 	i = 0;
 	while (j < cpt)
 	{
-		while (s[i] == c)
+		while (str[i] == c)
 			i++;
-		p[j] = ft_substr(s, i, len = lens((s + i), c));
+		p[j] = ft_substr(str, i, len = lens((str + i), c));
 		if (!p[j++])
 			return (ft_free(p, j - 1));
 		i += len;

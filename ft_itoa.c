@@ -47,22 +47,22 @@ char	*ft_itoa(int n)
 	int		i;
 	int		num;
 	int		len;
-	long	nn;
+	long	nnum;
 
 	i = -1;
 	len = ft_nbrlen(n);
 	p = (char *)malloc(len + 1);
 	if (!p)
 		return (NULL);
-	nn = n;
+	nnum = n;
 	if (n < 0)
-		set_negative_num(&nn, &i, p);
+		set_negative_num(&nnum, &i, p);
 	p[len] = '\0';
 	while (--len > i)
 	{
-		num = nn % 10;
+		num = nnum % 10;
 		p[len] = num + 48;
-		nn = nn / 10;
+		nnum = nnum / 10;
 	}
 	return (p);
 }
